@@ -1,0 +1,35 @@
+{
+  "name": "to-do-list-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianchso/to-do-list-auth.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianchso/to-do-list-auth/issues"
+  },
+  "homepage": "https://github.com/julianchso/to-do-list-auth#readme",
+  "dependencies": {
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongodb": "^4.1.0",
+    "mongoose": "^5.13.6",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.12"
+  }
+}

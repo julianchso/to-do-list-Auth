@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-const ejs = require("ejs");
+const exphbs = require('express-handlebars')
 const passport = require("passport");
 const connectDB = require("./config/db");
 
@@ -21,7 +21,8 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // ejs
-app.set("view engine", "ejs");
+app.engine('.hbs', exphbs({extname: '.hbs'}));
+app.set("view engine", "hbs");
 
 const PORT = process.env.PORT || 3000;
 

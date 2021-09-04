@@ -13,8 +13,8 @@ router.get("/", (req, res) => {
 
 // @desc Dashboard
 // @route GET /dashboard
-router.get("/dashboard", (req, res) => {
-  res.render("dashboard");
+router.get("/todos", (req, res) => {
+  res.render("todos");
 });
 
 module.exports = router;

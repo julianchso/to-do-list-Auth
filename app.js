@@ -1,8 +1,9 @@
+const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-const exphbs = require('express-handlebars')
+const exphbs = require("express-handlebars");
 const passport = require("passport");
 const connectDB = require("./config/db");
 
@@ -20,9 +21,12 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-// ejs
-app.engine('.hbs', exphbs({extname: '.hbs'}));
+// Handlebars
+app.engine(".hbs", exphbs({ extname: ".hbs" }));
 app.set("view engine", "hbs");
+
+// Static folder
+app.use(express.static(path.join(__dirname, "public")));
 
 const PORT = process.env.PORT || 3000;
 

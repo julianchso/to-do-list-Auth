@@ -1,1 +1,66 @@
-<h1>dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="../css/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <title>To Do</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="flexContainer">
+        <h1 class="title main-font center">Welcome {{displayName}}</h1>
+      </header>
+
+      <form class="center" action="/addtodo" method="POST">
+        <input type="text" placeholder="Add a To Do" name="todo" />
+        <button type="submit" class="submitButton">
+          <i class="fa fa-plus-square"></i>
+        </button>
+      </form>
+
+      <div class="to-do-list flexContainer">
+        <ul class="task-list center">
+          <% todos.forEach(todo => { %>
+          <li class="todo-name main-font complete-task" data-id="<%=todo._id%>">
+            <% if (todo.done === true) { %>
+            <span class="complete"><%= todo.todo %></span>
+            <% } else { %>
+            <span class="incomplete"><%= todo.todo %></span>
+            <% } %>
+            <span class="fa fa-trash delete-todo"></span>
+          </li>
+          <%}) %>
+        </ul>
+      </div>
+
+      {{!-- <div class="to-do-list flexContainer">
+        <ul class="task-list center">
+          {{#each todo}}
+            {{ if (todo.done === true) }}
+            <span class="complete"><%= todo.todo %></span>
+            {{else}}
+            <span class="incomplete"><%= todo.todo %></span>
+            {{/if}}
+            <span class="fa fa-trash delete-todo"></span>
+          {{/each}}
+          </li>
+        </ul>
+      </div> --}}
+
+      <h2 class="main-font center">Left to do: <%= left %></h2>
+    </div>
+    <script type="text/javascript" src="/js/main.js"></script>
+  </body>
+</html>

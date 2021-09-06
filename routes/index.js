@@ -15,7 +15,7 @@ router.get("/", ensureGuest, (req, res) => {
 // @desc Dashboard
 // @route GET /dashboard
 router.get("/todos", ensureAuth, (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   res.render("todos");
 });
 

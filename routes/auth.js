@@ -14,16 +14,16 @@ router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
   (req, res) => {
-      res.redirect('/todos')
+    res.redirect("/todos");
   }
 );
 
 // @desc Logout user
 // @route /auth/logout
 
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   req.logout();
-  res.redirect('/')
-})
+  res.redirect("/");
+});
 
 module.exports = router;

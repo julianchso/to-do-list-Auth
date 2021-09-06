@@ -22,6 +22,10 @@ connectDB();
 // Initialize app
 const app = express();
 
+// Body parser
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
@@ -52,7 +56,7 @@ const PORT = process.env.PORT || 3000;
 // Routes
 app.use("/", require("./routes/index"));
 app.use("/auth", require("./routes/auth"));
-// app.use("/todo", require("./routes/todo"));
+app.use("/todos", require("./routes/todos"));
 
 app.listen(
   PORT,

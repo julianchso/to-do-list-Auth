@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="../css/font-awesome-4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
@@ -20,10 +17,11 @@
   <body>
     <div class="container">
       <header class="flexContainer">
-        <h1 class="title main-font center">Welcome {{displayName}}</h1>
+        <h1 class="title main-font center">Welcome {{user.displayName}}</h1> 
+        {{!-- not rendering. Maybe I need to use lean()? --}}
       </header>
 
-      <form class="center" action="/addtodo" method="POST">
+      <form class="center" action="/addTodo" method="POST">
         <input type="text" placeholder="Add a To Do" name="todo" />
         <button type="submit" class="submitButton">
           <i class="fa fa-plus-square"></i>
@@ -32,23 +30,8 @@
 
       <div class="to-do-list flexContainer">
         <ul class="task-list center">
-          <% todos.forEach(todo => { %>
-          <li class="todo-name main-font complete-task" data-id="<%=todo._id%>">
-            <% if (todo.done === true) { %>
-            <span class="complete"><%= todo.todo %></span>
-            <% } else { %>
-            <span class="incomplete"><%= todo.todo %></span>
-            <% } %>
-            <span class="fa fa-trash delete-todo"></span>
-          </li>
-          <%}) %>
-        </ul>
-      </div>
-
-      {{!-- <div class="to-do-list flexContainer">
-        <ul class="task-list center">
           {{#each todo}}
-            {{ if (todo.done === true) }}
+            {{#if todo.done}}
             <span class="complete"><%= todo.todo %></span>
             {{else}}
             <span class="incomplete"><%= todo.todo %></span>
@@ -57,9 +40,9 @@
           {{/each}}
           </li>
         </ul>
-      </div> --}}
+      </div>
 
-      <h2 class="main-font center">Left to do: <%= left %></h2>
+      <h4 class="main-font center">Left to do: {{left}}</h4>
     </div>
     <script type="text/javascript" src="/js/main.js"></script>
   </body>

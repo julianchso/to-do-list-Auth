@@ -14,3 +14,5 @@ const toDoSchema = new mongoose.Schema({
     required: true,
   },
 });
+
+module.exports = mongoose.model("Todo", toDoSchema);

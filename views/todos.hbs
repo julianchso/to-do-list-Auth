@@ -32,7 +32,7 @@
         <ul class="task-list center">
             {{#if todo}}
               {{#each todo}}
-                <li>
+                <li data-id="{{_id}}">
                   {{!-- <a href="/todos/{{_id}}">{{todo}}</a> --}}
                   {{todo}}
                   <span class="fa fa-trash delete-todo"></span>
@@ -42,7 +42,7 @@
         </ul>
       </div>
 
-      {{!-- <h4 class="main-font center">Left to do: {{left}}</h4> --}}
+      <h4 class="main-font center">Left to do: {{left}}</h4>
     </div>
     <script type="text/javascript" src="/js/main.js"></script>
   </body>

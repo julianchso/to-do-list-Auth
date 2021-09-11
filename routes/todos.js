@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const todosController = require("../controllers/todos");
-// const { ensureAuth, EnsureGuest } = require("../middleware/auth");
+const { ensureAuth, EnsureGuest } = require("../middleware/auth");
 
-router.get("/", todosController.getTodos);
+router.get("/", ensureAuth, todosController.getTodos);
 
 router.post("/addTodo", todosController.addTodo);
 

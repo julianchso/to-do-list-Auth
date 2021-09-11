@@ -17,3 +17,5 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+
+// copy and paste this file everything. No use in typing it up from scratch.

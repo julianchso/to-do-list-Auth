@@ -1,13 +1,13 @@
 const path = require("path");
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require("express"); // handle CRUD api
+const mongoose = require("mongoose"); // talk to database
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const exphbs = require("express-handlebars");
-const passport = require("passport");
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
-const connectDB = require("./config/db");
+const passport = require("passport"); // handle all auth
+const session = require("express-session"); // keep users logged in
+const MongoStore = require("connect-mongo"); // pass session to database. Can get back in even if server restarts.
+const connectDB = require("./config/db"); // how we connect to database
 
 // Load config
 // config.env is where all the global variables are stored.

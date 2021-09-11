@@ -27,3 +27,5 @@ router.get("/logout", (req, res) => {
 });
 
 module.exports = router;
+
+// can copy and paste this file. No reason to type from scratch.

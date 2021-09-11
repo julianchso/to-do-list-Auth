@@ -32,9 +32,10 @@
         <ul class="task-list center">
           {{#each todo}}
             {{#if todo.done}}
-            <span class="complete"><%= todo.todo %></span>
+            <span class="complete">{{todo.todo}}</span>
             {{else}}
-            <span class="incomplete"><%= todo.todo %></span>
+            <h1>unknown</h1>
+            <span class="incomplete">{{todo.todo}}</span>
             {{/if}}
             <span class="fa fa-trash delete-todo"></span>
           {{/each}}

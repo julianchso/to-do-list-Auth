@@ -1,9 +1,9 @@
 const path = require("path");
 const express = require("express"); // handle CRUD api
+const exphbs = require("express-handlebars");
 const mongoose = require("mongoose"); // talk to database
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-const exphbs = require("express-handlebars");
 const passport = require("passport"); // handle all auth
 const session = require("express-session"); // keep users logged in
 const MongoStore = require("connect-mongo"); // pass session to database. Can get back in even if server restarts.
@@ -23,6 +23,7 @@ connectDB();
 const app = express();
 
 // Body parser
+// this allows us to look into data that was sent from forms
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -31,8 +32,14 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Handlebars
-app.engine(".hbs", exphbs({ extname: ".hbs" }));
-app.set("view engine", "hbs");
+app.engine(
+  ".hbs",
+  exphbs({
+    defaultLayout: "main",
+    extname: ".hbs",
+  })
+);
+app.set("view engine", ".hbs");
 
 // Sessions
 app.use(

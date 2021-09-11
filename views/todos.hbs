@@ -17,7 +17,7 @@
   <body>
     <div class="container">
       <header class="flexContainer">
-        <h1 class="title main-font center">Welcome {{user.displayName}}</h1> 
+        <h1 class="title main-font center">Welcome {{name}}</h1> 
         {{!-- not rendering. Maybe I need to use lean()? --}}
       </header>
 
@@ -30,20 +30,19 @@
 
       <div class="to-do-list flexContainer">
         <ul class="task-list center">
-          {{#each todo}}
-            {{#if todo.done}}
-            <span class="complete">{{todo.todo}}</span>
-            {{else}}
-            <h1>unknown</h1>
-            <span class="incomplete">{{todo.todo}}</span>
+            {{#if todo}}
+              {{#each todo}}
+                <li>
+                  {{!-- <a href="/todos/{{_id}}">{{todo}}</a> --}}
+                  {{todo}}
+                  <span class="fa fa-trash delete-todo"></span>
+                </li>
+              {{/each}}
             {{/if}}
-            <span class="fa fa-trash delete-todo"></span>
-          {{/each}}
-          </li>
         </ul>
       </div>
 
-      <h4 class="main-font center">Left to do: {{left}}</h4>
+      {{!-- <h4 class="main-font center">Left to do: {{left}}</h4> --}}
     </div>
     <script type="text/javascript" src="/js/main.js"></script>
   </body>

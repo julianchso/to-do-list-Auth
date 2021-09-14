@@ -8,17 +8,17 @@ module.exports = {
         googleId: req.user.googleId,
         done: false,
       });
-      
+
       res.render("todos.hbs", {
         todo: todoItems,
         left: itemsLeft,
-        name: req.user.firstName
+        name: req.user.firstName,
       });
     } catch (err) {
       console.error(err);
     }
   },
-  
+
   addTodo: async (req, res) => {
     console.log(req.body);
     try {
@@ -33,5 +33,15 @@ module.exports = {
       console.error(err);
     }
   },
-};
 
+  deleteTodo: async (req, res) => {
+    console.log(req.body);
+    try {
+      await Todo.findOneAndDelete({ _id: req.body.todoId });
+      console.log("Deleted Todo");
+      res.json("Deleted Todo");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+};

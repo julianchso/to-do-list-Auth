@@ -7,20 +7,21 @@ Array.from(deleteBtn).forEach((e) => {
 });
 
 async function deleteToDo() {
-  console.log("delete working!");
-    const todoId = this.parentNode.dataset.todoId;
-    try {
-      const response = await fetch("todos/deleteTodo", {
-        method: "delete",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          todoId: todoId,
-        }),
-      });
-      const data = await response.json();
-      console.log(data);
-      location.reload();
-    } catch (err) {
-      console.log(err);
-    }
+  const todoId = this.parentNode.dataset.id;
+  // const todoId = this.parentNode.dataset.id;
+  console.log(todoId);
+  try {
+    const response = await fetch("todos/deleteTodo", {
+      method: "delete",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        todoId: todoId,
+      }),
+    })
+    const data = await response.json();
+    console.log(data);
+    location.reload();
+  } catch (err) {
+    console.log(err);
+  }
 }

@@ -11,6 +11,6 @@ router.post("/addTodo", todosController.addTodo);
 
 // router.put("/markIncomplete", todosController.markIncomplete);
 
-// router.delete("/deleteToDo", todosController.deleteToDo);
+router.delete("/deleteToDo", todosController.deleteTodo);
 
 module.exports = router;

@@ -28,20 +28,22 @@
       <form class="center" action="/todos/addTodo" method="POST">
         <input type="text" placeholder="Add a To Do" name="todoItem" />
         <button type="submit" class="submitButton">
-          <span>Add Todo</span>  
+          <span>Add Todo</span>
         </button>
       </form>
 
       <div class="to-do-list flexContainer">
         <ul class="task-list center">
-          {{#if todo}}
-            {{#each todo}}
-              <li data-id="{{_id}}">
-                {{todo}}
-                <span class="fa fa-trash delete-todo"></span>
-              </li>
-            {{/each}}
-          {{/if}}
+          {{#each todo}}
+            <li data-id="{{_id}}">
+              {{#if done}}
+                <span class="complete">{{todo}}</span>
+              {{else}}
+                <span class="incomplete">{{todo}}</span>
+              {{/if}}
+              <span class="fa fa-trash delete-todo"></span>
+            </li>
+          {{/each}}
         </ul>
       </div>
 

@@ -26,11 +26,14 @@ p {
 }
 
 .submitButton:hover {
-	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-	background-color:#80b5ea;
+  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+  background-color: #80b5ea;
 }
 .submitButton:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
+.complete {
+  text-decoration: line-through;
+}

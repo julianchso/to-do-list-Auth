@@ -37,3 +37,7 @@ p {
 .complete {
   text-decoration: line-through;
 }
+
+.container {
+  width: 50%;
+}

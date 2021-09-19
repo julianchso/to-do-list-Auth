@@ -36,6 +36,7 @@
         <ul class="task-list center">
           {{#each todo}}
             <li data-id="{{_id}}">
+              {{done}}
               {{#if done}}
                 <span class="complete">{{todo}}</span>
               {{else}}

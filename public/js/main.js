@@ -18,6 +18,7 @@ async function deleteToDo() {
   const todoId = this.parentNode.dataset.id;
   try {
     const response = await fetch("todos/deleteTodo", {
+      // response is a placeholder for multiple data formats.
       method: "delete",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify({
@@ -25,6 +26,7 @@ async function deleteToDo() {
       }),
     });
     const data = await response.json();
+    // can extract the json object from the fetch response.
     console.log(data);
     location.reload();
   } catch (err) {
